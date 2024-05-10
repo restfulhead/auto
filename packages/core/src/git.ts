@@ -139,6 +139,7 @@ export default class Git {
       previews: ["symmetra-preview"],
       request: { agent: this.options.agent },
       throttle: {
+        fallbackSecondaryRateRetryAfter: 60,
         /** Add a wait once rate limit is hit */
         onRateLimit: (retryAfter: number, opts: ThrottleOpts) => {
           this.logger.log.warn(
